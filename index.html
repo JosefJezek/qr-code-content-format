@@ -76,7 +76,7 @@
               <a href="./">Home</a>
             </li>
             <li class="active">
-              <a href="./">Content format</a>
+              <a href="./">Content Format</a>
             </li>
           </ul>
         </div>
@@ -148,58 +148,71 @@
         <div class="page-header">
           <h1>Content Format</h1>
         </div>
-        <h2>Overview and examples</h2>
-        <p>...</p>
-        <p>test<code>test code</code></p>
+        <h2>Specification</h2>
+        <p>The format of the string is designed to be compact in size as regards the data contained. Advantage of the proposed format is a potential scalability of specific attributes.</p>
+        <p>To effectively store data in a QR code is necessary to assemble the string so that it contains only the following recommended characters:</p>
+        <ul>
+          <li>0–9</li>
+          <li>A–Z (upper-case only)</li>
+          <li>space</li>
+          <li>$, %, *, +, -, ., /, :</li>
+        </ul>
+        <p>If used in a string of character sets other than specified above, will be used in charset ISO-8859-1 for <a href="//en.wikipedia.org/wiki/QR_code#Storage" target="_blank">binary QR code</a>.</p>
         <table class="table table-hover">
           <thead>
             <tr>
               <th>Content Format</th>
               <th>Description</th>
-              <th>Example</th>
-              <th>QR Code</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>HEADER:VALUE</td>
-              <td></td>
-              <td>A:COM.GOOGLE.ZXING.CLIENT.ANDROID</td>
-              <td><i class="icon-qrcode"></td>
+              <td>Delimiter of HEADER is char ':'</td>
             </tr>
             <tr>
               <td>HEADER:VALUE*KEY:VALUE*KEY:VALUE</td>
-              <td></td>
-              <td></td>
-              <td><i class="icon-qrcode"></td>
+              <td>Delimiter of KEY is char ':' and delimiter of pair KEY:VALUE is char '*'</td>
             </tr>
             <tr>
               <td>HEADER:KEY:VALUE*KEY:VALUE</td>
               <td></td>
-              <td></td>
-              <td><i class="icon-qrcode"></td>
             </tr>
             <tr>
               <td>VALUE</td>
-              <td></td>
-              <td></td>
-              <td><i class="icon-qrcode"></td>
+              <td>This format is useful only for URL and any text. Example: goo.gl/abcd</td>
             </tr>
           </tbody>
         </table>
-        <div class="bs-docs-example">
-          <pre>test</pre>
-          <div class="well">
-            <p>...</p>
-          </div>
-        </div>
-        <pre class="prettyprint linenums" ng-non-bindable>
-          test
-        </pre>
         <div class="alert alert-info">
           <strong>Heads up!</strong>
-          test
+          Content format is similar to <a href="//en.wikipedia.org/wiki/URI_scheme" target="_blank">URI</a> syntax scheme://domain:port. QR Code can contain any URI.
         </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HEADER</td>
+              <td>Header with the size of one character from the set A–Z is tightly defined.</td>
+            </tr>
+            <tr>
+              <td>KEY</td>
+              <td>Key with the size of one character from the set A–Z is tightly defined.</td>
+            </tr>
+            <tr>
+              <td>VALUE</td>
+              <td>
+                <p>The value for the key can contain any characters from the recommended set of characters outside the character '*' and ':'.</p>
+                <p>The value can contain special characters encoded using <a href="//www.w3schools.com/tags/ref_urlencode.asp" target="_blank">URL encoding</a>. The character '*' may be included in the value by writing <code>%2A</code> and character ':' with <code>%3A</code>.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section id="application-link">
@@ -207,8 +220,7 @@
           <h1>Application link</h1>
         </div>
         <h2>Overview and examples</h2>
-        <p>...</p>
-        <p>test<code>test code</code></p>
+        <p></p>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -217,7 +229,7 @@
               <th>Description</th>
               <th>Value</th>
               <th>Example</th>
-              <th>QR Code</th>
+              <th>QR</th>
             </tr>
           </thead>
           <tbody>
@@ -225,25 +237,12 @@
               <td>A</td>
               <td><i class="icon-remove"></i></td>
               <td>Link to package</td>
-              <td>COM.GOOGLE.ZXING.CLIENT.ANDROID</td>
+              <td></td>
               <td>A:COM.GOOGLE.ZXING.CLIENT.ANDROID</td>
               <td><i class="icon-qrcode"></td>
             </tr>
           </tbody>
         </table>
-        <div class="bs-docs-example">
-          <pre>test</pre>
-          <div class="well">
-            <p>...</p>
-          </div>
-        </div>
-        <pre class="prettyprint linenums" ng-non-bindable>
-          test
-        </pre>
-        <div class="alert alert-info">
-          <strong>Heads up!</strong>
-          test
-        </div>
       </section>
 
       
