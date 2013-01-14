@@ -3,12 +3,12 @@
 <head>
 
   <meta charset="utf-8">
-  <title>QR Code Content Format - Optimized format for better QR code size</title>
-  <meta name="description" content="Optimized format for better QR code size.">
+  <title>QR Code Content Format - Optimized format for smaller QR Code size</title>
+  <meta name="description" content="Optimized format for smaller QR Code size.">
   <meta name="google-site-verification" content="" />
 
   <meta itemprop="name" content="QR Code Content Format">
-  <meta itemprop="description" content="Optimized format for better QR code size.">
+  <meta itemprop="description" content="Optimized format for smaller QR Code size.">
   <meta itemprop="image" content="">
 
   <link rel="author" href="https://plus.google.com/109278216215006065508">
@@ -91,7 +91,7 @@
   <header class="jumbotron subhead" id="overview">
     <div class="container">
       <h1>QR Code Content Format</h1>
-      <p class="lead">Optimized format for better QR code size.</p>
+      <p class="lead">Optimized format for smaller QR Code size.</p>
     </div>
     <div class="bs-docs-social">
       <div class="container">
@@ -106,7 +106,7 @@
             <iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.1352365724.html#_=1353343600175&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=olouv&amp;show_count=true&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button" style="width: 236px; height: 20px;" title="Twitter Follow Button" data-twttr-rendered="true"></iframe>
           </li>-->
           <li class="tweet-btn">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josefjezek.github.com/qr-code-content-format/" data-text="QR Code Content Format - Optimized format for better QR code size" data-related="olouv">Tweet</a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josefjezek.github.com/qr-code-content-format/" data-text="QR Code Content Format - Optimized format for smaller QR Code size" data-related="olouv">Tweet</a>
           </li>
           <li>
             <div class="g-plusone" data-size="medium" data-href="http://josefjezek.github.com/qr-code-content-format/"></div>
@@ -158,7 +158,7 @@
           <li>$, %, *, +, -, ., /, :</li>
         </ul>
         <p>If used in a string of character sets other than specified above, will be used in charset ISO-8859-1 for <a href="//en.wikipedia.org/wiki/QR_code#Storage" target="_blank">binary QR code</a>.</p>
-        <table class="table table-hover">
+        <table class="table table-bordered table-hover">
           <thead>
             <tr>
               <th>Content Format</th>
@@ -180,7 +180,7 @@
             </tr>
             <tr>
               <td>VALUE</td>
-              <td>This format is useful only for URL and any text. Example: goo.gl/abcd</td>
+              <td>This format is useful only for URL and any text. Example short URL: goo.gl/abcd</td>
             </tr>
           </tbody>
         </table>
@@ -188,7 +188,7 @@
           <strong>Heads up!</strong>
           Content format is similar to <a href="//en.wikipedia.org/wiki/URI_scheme" target="_blank">URI</a> syntax scheme://domain:port. QR Code can contain any URI.
         </div>
-        <table class="table table-hover">
+        <table class="table table-bordered table-hover">
           <thead>
             <tr>
               <th>Variable</th>
@@ -207,8 +207,10 @@
             <tr>
               <td>VALUE</td>
               <td>
-                <p>The value for the key can contain any characters from the recommended set of characters outside the character '*' and ':'.</p>
-                <p>The value can contain special characters encoded using <a href="//www.w3schools.com/tags/ref_urlencode.asp" target="_blank">URL encoding</a>. The character '*' may be included in the value by writing <code>%2A</code> and character ':' with <code>%3A</code>.</p>
+                <p>Value can contain any characters from the recommended set of characters outside the character '*', ':', '%'.</p>
+                <p>The value can contain special characters encoded using <a href="//www.w3schools.com/tags/ref_urlencode.asp" target="_blank">URL encoding</a>. The character '*' may be included in the value by writing <code>%2A</code>, character ':' with <code>%3A</code>, and character '%' with <code>%25</code>.</p>
+                <p>QR Code can encode data more efficiently in some cases if only uppercase letters are used. That's because it has a special encoding mode for text consistent of only (uppercase) letters, numbers, and common symbols, specified above. It may be advantageous to encode a URL like "HTTP://MYSITE.COM/FOO..." rather than "http://mysite.com/foo..." for this reason. However, this depends upon the web server responding to requests correctly when the URI is uppercased. It's not necessarily true that URIs and paths are treated as case-insensitive by a web server, since URIs are technically case sensitive. Don't try this unless you test it to know it works.</p>
+                <p>QR Code reader can convert value from uppercase to lowercase. For example, to convert the name SEAN OWEN as Sean Owen.</p>
               </td>
             </tr>
           </tbody>
@@ -221,7 +223,35 @@
         </div>
         <h2>Overview and examples</h2>
         <p></p>
-        <table class="table table-hover">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Header</th>
+              <th>Key</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>QR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A</td>
+              <td><i class="icon-remove"></i></td>
+              <td>Link to package</td>
+              <td>A:COM.GOOGLE.ZXING.CLIENT.ANDROID</td>
+              <td><i class="icon-qrcode"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="business-card">
+        <div class="page-header">
+          <h1>Business card</h1>
+        </div>
+        <h2>Overview and examples</h2>
+        <p></p>
+        <table class="table table-bordered table-hover">
           <thead>
             <tr>
               <th>Header</th>
@@ -234,12 +264,22 @@
           </thead>
           <tbody>
             <tr>
-              <td>A</td>
+              <td>B</td>
               <td><i class="icon-remove"></i></td>
-              <td>Link to package</td>
+              <td>Phone number</td>
               <td></td>
-              <td>A:COM.GOOGLE.ZXING.CLIENT.ANDROID</td>
-              <td><i class="icon-qrcode"></td>
+              <td>B:+12125551212</td>
+              <td><i class="icon-qrcode"></i></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>N</td>
+              <td>First name, Last name</td>
+              <td>FIRSTNAME:LASTNAME</td>
+              <td>B:+12125551212*N:SEAN:OWEN</td>
+              <td><i class="icon-qrcode"></i></td>
             </tr>
           </tbody>
         </table>
